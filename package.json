@@ -1,0 +1,19 @@
+{
+  "name": "fullstackopen-part3",
+  "version": "1.0.0",
+  "description": "Fullstackopen.com Part 3 exercise",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Katon Surya Atmaja",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
