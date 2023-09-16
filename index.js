@@ -1,9 +1,16 @@
-// @ts-check
-
 const express = require('express')
+const morgan = require('morgan')
 const app = express()
 
 app.use(express.json())
+
+// create new morgan token of request body
+morgan.token('request-body', function (req, res) {
+  return JSON.stringify(req.body);
+})
+
+const morganMiddleware = morgan(':method :url :status :res[content-length] - :response-time ms :request-body')
+app.use(morganMiddleware)
 
 let persons = [
   { 
@@ -58,8 +65,7 @@ app.post('/api/persons', (request, response) => {
 
   const isNameExists = persons.find(person => person.name === body.name)
   if (isNameExists !== undefined) {
-    // Exercise 3.6
-    // I am so confused to use between 400 and 422
+    // Exercise 3.6 I am so confused to use between 400 and 422
     // As my understanding, 400 is used when its a client error (e.g. malformat request)
     // but the server can understand the request body so I choose 422
     // because in MDN website state the server understand the request
@@ -96,7 +102,6 @@ app.delete('/api/persons/:id', (request, response) => {
 
   response.status(204).end()
 })
-
 
 const PORT = 3001
 app.listen(PORT, () => {
