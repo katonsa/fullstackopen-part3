@@ -1,6 +1,6 @@
 node_modules
-
-#output of phonebook react
-# dist
-
-my_time_tracker
+fly.toml
+Dockerfile
+.dockerignore
+dist
+.env
