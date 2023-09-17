@@ -10,8 +10,8 @@ app.use(express.json())
 app.use(express.static('dist'))
 
 // create new morgan token of request body
-morgan.token('request-body', function (req, res) {
-  return JSON.stringify(req.body);
+morgan.token('request-body', function (req) {
+  return JSON.stringify(req.body)
 })
 
 const morganMiddleware = morgan(':method :url :status :res[content-length] - :response-time ms :request-body')
@@ -31,7 +31,7 @@ app.get('/api/persons', (_request, response) => {
 })
 
 app.post('/api/persons', (request, response, next) => {
-  const {name, number} = request.body
+  const { name, number } = request.body
 
   const person = new Person({
     name: name,
@@ -68,7 +68,7 @@ app.get('/api/persons/:id', (request, response, next) => {
 })
 
 app.put('/api/persons/:id', (request, response, next) => {
-  const {name, number} = request.body;
+  const { name, number } = request.body
 
   const person = {
     name,
