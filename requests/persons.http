@@ -1,11 +1,11 @@
 ### Get all resources
 GET http://localhost:3001/api/persons HTTP/1.1
 
-### Get resource
-GET http://localhost:3001/api/persons/1 HTTP/1.1
+### Get resource 
+GET http://localhost:3001/api/persons/[id] HTTP/1.1
 
 ### Delete resource
-DELETE http://localhost:3001/api/persons/1 HTTP/1.1
+DELETE http://localhost:3001/api/persons/[id] HTTP/1.1
 
 ### Creating new resource
 POST http://localhost:3001/api/persons HTTP/1.1
@@ -30,4 +30,12 @@ Content-Type: application/json
 
 {
   "name": "Keanu Reeves"
+}
+
+### Update a resource
+PUT http://localhost:3001/api/persons/[id] HTTP/1.1
+Content-Type: application/json
+
+{
+  "number": "123-123654"
 }
